@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Twitch Emote Maker</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<h1 class="header">Twitch Image Resizer</h1>
+<div class="options-wrapper">
+    <div class="choose-button-wrapper">
+        <button id="option-button" class="choose-button">Choose Files</button>
+        <input id="emote-files" type="file" name="myFiles"
+               accept="image/png, image/jpeg, image/gif" multiple/>
+    </div>
+    <div class="choose-button-wrapper">
+        <button id="download-button" class="choose-button"><a>Download All</a></button>
+    </div>
+</div>
+<div class="images-wrapper">
+    <div class="images" id="images-container"></div>
+</div>
+<script type="text/javascript" src="js/jszip.js"></script>
+<script type="text/javascript" src="js/jszip-utils.js"></script>
+<script type="text/javascript" src="js/FileSaver.js"></script>
+<script type="text/javascript" src="https://unpkg.com/pica/dist/pica.min.js"></script>
+<script type= "text/javascript" src="js/index.js"></script>
+</body>
+</html>
