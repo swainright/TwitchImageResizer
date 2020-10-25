@@ -37,6 +37,7 @@ function postEmotes() {
 
         reader.readAsDataURL(file);
         images.appendChild(imageSet);
+        console.log(data);
     }
 }
 
@@ -59,22 +60,23 @@ function postBadges() {
             var fileName = file.name.substr(0, file.name.lastIndexOf('.'));
             source = reader.result.toString();
 
-            image112 = resize(imageSet, 72, source);
-            image112.setAttribute("title", fileName + "_72");
+            image72 = resize(imageSet, 72, source);
+            image72.setAttribute("title", fileName + "_72");
             data.push(image72);
 
-            image56 = resize(imageSet, 36, source);
-            image56.setAttribute("title", fileName + "_36");
+            image36 = resize(imageSet, 36, source);
+            image36.setAttribute("title", fileName + "_36");
             data.push(image36);
 
 
-            image28 = resize(imageSet, 18, source);
-            image28.setAttribute("title", fileName + "_18");
+            image18 = resize(imageSet, 18, source);
+            image18.setAttribute("title", fileName + "_18");
             data.push(image18);
         }
 
         reader.readAsDataURL(file);
         images.appendChild(imageSet);
+        console.log(data);
     }
 }
 
