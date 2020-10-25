@@ -7,23 +7,15 @@
 </head>
 <body>
 <h1 class="header">Twitch Image Resizer</h1>
-<div>
-<div class="tab">
-    <button class="tablinks" id="default-open">Emotes</button>
-    <button class="tablinks">Badges</button>
-</div>
-
-<div id="emotes" class="tabcontent">
-    <h3>These are for emotes.</h3>
-</div>
-<div id="badges" class="tabcontent">
-    <h3>These are for badges.</h3>
-</div>
-</div>
 <div class="options-wrapper">
     <div class="choose-button-wrapper">
-        <button id="option-button" class="choose-button">Choose Files</button>
+        <button id="option-button" class="choose-button">Choose Emotes</button>
         <input id="emote-files" type="file" name="myFiles"
+               accept="image/png, image/jpeg, image/gif" multiple/>
+    </div>
+    <div class="choose-button-wrapper">
+        <button id="badges-option" class="choose-button">Choose Badges</button>
+        <input id="badge-files" type="file" name="myBadges"
                accept="image/png, image/jpeg, image/gif" multiple/>
     </div>
     <div class="choose-button-wrapper">
@@ -31,7 +23,8 @@
     </div>
 </div>
 <div class="images-wrapper">
-    <div class="images" id="images-container"></div>
+    <div class="images" id="emotes-container"></div>
+    <div class="images" id="badges-container"></div>
 </div>
 
 <script type="text/javascript" src="js/pica.js"></script>
@@ -39,6 +32,5 @@
 <script type="text/javascript" src="js/jszip-utils.js"></script>
 <script type="text/javascript" src="js/FileSaver.js"></script>
 <script type= "text/javascript" src="js/index.js"></script>
-
 </body>
 </html>

@@ -2,9 +2,14 @@ var pica = new pica();
 var zip = new JSZip();
 var data = [];
 
-function postFiles() {
-    const files = document.getElementById('emote-files').files;
-    const images = document.getElementById('images-container')
+function displayFiles() {
+    let files = document.getElementById('badge-files').files;
+    console.log(files);
+}
+
+function postEmotes() {
+    let files = document.getElementById('emote-files').files;
+    let images = document.getElementById('emotes-container');
     images.style.border = 'solid 0.125rem #9446ff';
 
     for (let i = 0; i < files.length; i++) {
@@ -33,6 +38,44 @@ function postFiles() {
             image28 = resize(imageSet, 28, source);
             image28.setAttribute("title", fileName + "_28");
             data.push(image28);
+        }
+
+        reader.readAsDataURL(file);
+        images.appendChild(imageSet);
+    }
+}
+
+function postBadges() {
+    let files = document.getElementById('badge-files').files;
+    let images = document.getElementById('badges-container');
+    images.style.border = 'solid 0.125rem #9446ff';
+
+    for (let i = 0; i < files.length; i++) {
+        let imageSet = document.createElement("div");
+        imageSet.setAttribute('class', 'image-set');
+        let file = files[i];
+        let source = "";
+        let image72;
+        let image36;
+        let image18;
+
+        const reader = new FileReader();
+        reader.onloadend = function () {
+            var fileName = file.name.substr(0, file.name.lastIndexOf('.'));
+            source = reader.result.toString();
+
+            image112 = resize(imageSet, 72, source);
+            image112.setAttribute("title", fileName + "_72");
+            data.push(image72);
+
+            image56 = resize(imageSet, 36, source);
+            image56.setAttribute("title", fileName + "_36");
+            data.push(image36);
+
+
+            image28 = resize(imageSet, 18, source);
+            image28.setAttribute("title", fileName + "_18");
+            data.push(image18);
         }
 
         reader.readAsDataURL(file);
@@ -99,22 +142,14 @@ function typeSelector(imgType) {
 }
 
 const chooser = document.getElementById('emote-files');
-chooser.addEventListener('input', postFiles);
+chooser.addEventListener('input', postEmotes);
+
+const badgesUpload = document.getElementById('badge-files');
+badgesUpload.addEventListener('input', postBadges);
+
 const downloader = document.getElementById('download-button');
 downloader.addEventListener('click', downloadAll);
 
-let tablinks = document.getElementsByClassName("tablinks");
-for (let i = 0; i < tablinks.length; i++) {
-    tablinks[i].addEventListener("click", function() {
-        typeSelector(tablinks[i].innerHTML);
-    });
-}
 
-let tabcontent = document.getElementsByClassName("tabcontent");
-
-for (let i = 0; i < tabcontent.length; i++)
-    tabcontent[i].style.display = "none";
-
-document.getElementById("default-open").click();
 
 
