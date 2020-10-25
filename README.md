@@ -1,4 +1,4 @@
-# TwitchEmoteResizer
+# TwitchImageResizer
 **ReadMe File Update:** 10/25/2020
 
 TwitchImageResizer is a fast and easy resizing web tool for Twitch emotes and badges. Batch files are supported!
