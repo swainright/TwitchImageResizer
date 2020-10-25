@@ -2,6 +2,20 @@ var pica = new pica();
 var zip = new JSZip();
 var data = [];
 
+let tablinks = document.getElementsByClassName("tablinks");
+for (let i = 0; i < tablinks.length; i++) {
+    tablinks[i].addEventListener("click", function() {
+        typeSelector(tablinks[i].innerHTML);
+    });
+}
+
+let tabcontent = document.getElementsByClassName("tabcontent");
+
+for (let i = 0; i < tabcontent.length; i++)
+    tabcontent[i].style.display = "none";
+
+document.getElementById("default-open").click();
+
 function postFiles() {
     const files = document.getElementById('emote-files').files;
     const images = document.getElementById('images-container')
@@ -12,34 +26,32 @@ function postFiles() {
         imageSet.setAttribute('class', 'image-set');
         let file = files[i];
         let source = "";
-        let image72;
-        let image36;
-        let image18;
+        let image112;
+        let image56;
+        let image28;
 
         const reader = new FileReader();
         reader.onloadend = function () {
             var fileName = file.name.substr(0, file.name.lastIndexOf('.'));
             source = reader.result.toString();
 
-            image72 = resize(imageSet, 112, source);
-            image72.setAttribute("title", fileName + "_112");
-            data.push(image72);
+            image112 = resize(imageSet, 112, source);
+            image112.setAttribute("title", fileName + "_112");
+            data.push(image112);
 
-            image36 = resize(imageSet, 56, source);
-            image36.setAttribute("title", fileName + "_56");
-            data.push(image36);
+            image56 = resize(imageSet, 56, source);
+            image56.setAttribute("title", fileName + "_56");
+            data.push(image56);
 
 
-            image18 = resize(imageSet, 28, source);
-            image18.setAttribute("title", fileName + "_28");
-            data.push(image18);
+            image28 = resize(imageSet, 28, source);
+            image28.setAttribute("title", fileName + "_28");
+            data.push(image28);
         }
 
         reader.readAsDataURL(file);
         images.appendChild(imageSet);
     }
-
-    console.log(data);
 }
 
 
@@ -53,7 +65,7 @@ function resize(container, size, path) {
 
     scaledImage.onload = function() {
         pica.resize(scaledImage, canvas, {
-            quality: 3,
+            quality: 2,
             alpha: true
         });
     }
@@ -85,8 +97,25 @@ function downloadAll() {
         })
 }
 
+function typeSelector(imgType) {
+    let tabcontent = document.getElementsByClassName("tabcontent");
+
+    for (let i = 0; i < tabcontent.length; i++)
+        tabcontent[i].style.display = "none";
+
+    let tablinks = document.getElementsByClassName("tablinks");
+
+    for (let i = 0; i < tablinks.length; i++)
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+
+    document.getElementById(imgType.toLowerCase()).style.display = "block";
+    this.className += " active";
+}
 
 const chooser = document.getElementById('emote-files');
 chooser.addEventListener('input', postFiles);
 const downloader = document.getElementById('download-button');
 downloader.addEventListener('click', downloadAll);
+
+
+

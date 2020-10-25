@@ -43,7 +43,7 @@ canvas, img {
 }
 
 .images {
-    margin: auto;
+    margin: 0;
     display: inline-block;
 }
 
@@ -61,4 +61,9 @@ canvas, img {
     padding: 1rem;
     position: sticky;
     top: 0;
+}
+
+.tabcontent {
+    display: none;
+    color: #ffffff;
 }
