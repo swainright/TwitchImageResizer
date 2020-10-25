@@ -38,6 +38,25 @@ canvas, img {
     opacity: 0;
 }
 
+.description {
+    color: #ffffff;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: justify;
+    width: 600px;
+}
+
+.github-link {
+    color: #6699ff;
+    display: block;
+    font-size: 1.4rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    width: 600px;
+}
+
 .header {
     color: #9446ff;
 }
@@ -54,6 +73,10 @@ canvas, img {
 .images-wrapper {
     margin: 1rem 0;
     display: block;
+}
+
+.logo {
+    margin: 0 1rem 0 1rem;
 }
 
 .options-wrapper {

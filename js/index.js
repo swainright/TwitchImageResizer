@@ -57,7 +57,7 @@ function postBadges() {
 
         const reader = new FileReader();
         reader.onloadend = function () {
-            var fileName = file.name.substr(0, file.name.lastIndexOf('.'));
+            let fileName = file.name.substr(0, file.name.lastIndexOf('.'));
             source = reader.result.toString();
 
             image72 = resize(imageSet, 72, source);
@@ -128,7 +128,7 @@ function downloadAll() {
 
     zip.generateAsync({type: "blob"})
         .then(function(content) {
-            saveAs(content, "archive.zip");
+            saveAs(content, "twitch_files.zip");
         })
 }
 
