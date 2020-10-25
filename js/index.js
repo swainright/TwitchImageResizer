@@ -2,20 +2,6 @@ var pica = new pica();
 var zip = new JSZip();
 var data = [];
 
-let tablinks = document.getElementsByClassName("tablinks");
-for (let i = 0; i < tablinks.length; i++) {
-    tablinks[i].addEventListener("click", function() {
-        typeSelector(tablinks[i].innerHTML);
-    });
-}
-
-let tabcontent = document.getElementsByClassName("tabcontent");
-
-for (let i = 0; i < tabcontent.length; i++)
-    tabcontent[i].style.display = "none";
-
-document.getElementById("default-open").click();
-
 function postFiles() {
     const files = document.getElementById('emote-files').files;
     const images = document.getElementById('images-container')
@@ -117,5 +103,18 @@ chooser.addEventListener('input', postFiles);
 const downloader = document.getElementById('download-button');
 downloader.addEventListener('click', downloadAll);
 
+let tablinks = document.getElementsByClassName("tablinks");
+for (let i = 0; i < tablinks.length; i++) {
+    tablinks[i].addEventListener("click", function() {
+        typeSelector(tablinks[i].innerHTML);
+    });
+}
+
+let tabcontent = document.getElementsByClassName("tabcontent");
+
+for (let i = 0; i < tabcontent.length; i++)
+    tabcontent[i].style.display = "none";
+
+document.getElementById("default-open").click();
 
 
