@@ -2,11 +2,6 @@ var pica = new pica();
 var zip = new JSZip();
 var data = [];
 
-function displayFiles() {
-    let files = document.getElementById('badge-files').files;
-    console.log(files);
-}
-
 function postEmotes() {
     let files = document.getElementById('emote-files').files;
     let images = document.getElementById('emotes-container');
@@ -92,9 +87,18 @@ function resize(container, size, path) {
     canvas.width = size;
     canvas.height = size;
 
+    let dpi = window.devicePixelRatio;
+
+
+    let styleHeight = +getComputedStyle(canvas).getPropertyValue("height").slice(0, -2);
+    let styleWidth = +getComputedStyle(canvas).getPropertyValue("width").slice(0, -2);
+
+    scaledImage.setAttribute("height", "" + (styleHeight * dpi));
+    scaledImage.setAttribute("width", "" + (styleWidth * dpi));
+
     scaledImage.onload = function() {
         pica.resize(scaledImage, canvas, {
-            quality: 2,
+            quality: 3,
             alpha: true
         });
     }
