@@ -122,14 +122,17 @@ function urlToPromise(url) {
 }
 
 function downloadAll() {
-    for (let i = 0; i < data.length; i++) {
-        zip.file(data[i].title + ".png", urlToPromise(data[i].toDataURL()), {binary:true});
-    }
 
-    zip.generateAsync({type: "blob"})
-        .then(function(content) {
-            saveAs(content, "twitch_files.zip");
-        })
+    if (data.length !== 0) {
+        for (let i = 0; i < data.length; i++) {
+            zip.file(data[i].title + ".png", urlToPromise(data[i].toDataURL()), {binary: true});
+        }
+
+        zip.generateAsync({type: "blob"})
+            .then(function (content) {
+                saveAs(content, "twitch_files.zip");
+            });
+    }
 }
 
 const emotesUpload = document.getElementById('emote-files');
