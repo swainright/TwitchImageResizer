@@ -132,8 +132,8 @@ function downloadAll() {
         })
 }
 
-const chooser = document.getElementById('emote-files');
-chooser.addEventListener('input', postEmotes);
+const emotesUpload = document.getElementById('emote-files');
+emotesUpload.addEventListener('input', postEmotes);
 
 const badgesUpload = document.getElementById('badge-files');
 badgesUpload.addEventListener('input', postBadges);
