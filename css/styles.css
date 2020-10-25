@@ -2,6 +2,7 @@ body {
     background-color: #000000;
     font-family: 'Roobert', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     text-align: center;
+    padding-bottom: 3remgi;
 }
 
 canvas, img {
@@ -45,6 +46,35 @@ canvas, img {
     margin-right: auto;
     text-align: justify;
     width: 600px;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 3rem;
+    width: 100%;
+    background-color: #6441a5;
+    color: #ffffff;
+    text-align: center;
+}
+
+.footer-link {
+    color: #6699ff;
+    display: inline-block;
+    font-size: 1.4rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+.footer-link:hover {
+    color: #99bbff;
+}
+
+.footer-text {
+    margin: 0.5rem auto auto 1rem;
+    text-align: left;
 }
 
 .github-link {
