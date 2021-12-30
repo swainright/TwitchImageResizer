@@ -1,6 +1,6 @@
-var pica = new pica();
-var zip = new JSZip();
-var data = [];
+const pica = new window.pica();
+const zip = new window.JSZip();
+const data = [];
 
 function postEmotes() {
     let files = document.getElementById('emote-files').files;
@@ -111,14 +111,12 @@ function resize(container, size, path) {
 }
 
 function urlToPromise(url) {
-    return new Promise(function (resolve, reject) {
-        JSZipUtils.getBinaryContent(url, function(err, data) {
-            if (err)
-                reject(err);
-            else
-                resolve(data);
-        });
+  return new Promise(function (resolve, reject) {
+    window.JSZipUtils.getBinaryContent(url, function (err, data) {
+      if (err) reject(err);
+      else resolve(data);
     });
+  });
 }
 
 function downloadAll() {
