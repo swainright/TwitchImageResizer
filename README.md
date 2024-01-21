@@ -4,4 +4,4 @@
 TwitchImageResizer is a fast and easy resizing web tool for Twitch emotes and badges. Batch files are supported!
 
 # How to Use
-The live web page is located at: https://servalsam.github.io/TwitchImageResizer/
+The live web page is located at: https://venhorizon.github.io/TwitchImageResizer/
